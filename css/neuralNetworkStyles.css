@@ -1,0 +1,204 @@
+html, body {
+    height: 100%;
+    margin: 1px;
+}
+
+#top{
+    padding: 15px;
+    border: 1px solid red;
+    height: 10vh;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #867979;
+}
+
+#down{
+    padding: 15px;
+    height: 90vh;
+    background-color: #e7e7e4;
+    border-radius: 10px;
+    border: 1px solid #867979;
+}
+
+.draggableInput { 
+	width: 25%; 
+	height: 30vh; 
+	padding: 1em; 
+	float: left; 
+	margin: 10px 10px 10px 0; 
+	background-color: #9933ff;
+	border-radius: 10px;
+    border: 1px solid #9933ff;
+    writing-mode:tb-rl;
+}
+
+.draggableInputHelper { 
+	width: 6%; 
+	height: 65vh; 
+	padding: 0.5em; 
+	margin: 10px 10px 10px 0; 
+	background-color: #006699;
+	border-radius: 10px;
+    border: 1px solid #006699;
+}
+
+.draggableHidden { 
+	width: 25%; 
+	height: 30vh; 
+	padding: 0.5em; 
+	float: left; 
+	margin: 10px 10px 10px 0; 
+	background-color: #9933ff;
+	border-radius: 10px;
+    border: 1px solid #9933ff;
+    writing-mode:tb-rl;
+}
+
+.draggableHiddenHelper{ 
+	width: 6%; 
+	height: 65vh; 
+	padding: 0.5em; 
+	margin: 10px 10px 10px 0; 
+	background-color: #0088cc;
+	border-radius: 10px;
+    border: 1px solid #0088cc;
+}
+
+.draggableOutput { 
+	width: 25%; 
+	height: 30vh; 
+	padding: 0.5em; 
+	float: left; 
+	margin: 10px 10px 10px 0; 
+	background-color: #9933ff;
+	border-radius: 10px;
+    border: 1px solid #9933ff;
+    writing-mode:tb-rl;
+}
+
+.draggableOutputHelper { 
+	width: 6%; 
+	height: 65vh;
+	padding: 0.5em; 
+	margin: 10px 10px 10px 0; 
+	background-color: #00aaff;
+	border-radius: 10px;
+    border: 1px solid #00aaff;
+}
+
+#droppable { 
+	width: 100%; 
+	height: 100%; 
+	padding: 0.5em;  
+	margin: 10px; 
+	float: left;
+	border: 1px solid #867979;
+	border-radius: 4px;
+	background-color: white;
+}
+
+.nodes{
+	width:40px;
+	height:40px;
+	background-color: black;
+	border: 1px solid #867979;
+	border-radius: 4px;
+}
+
+#NameDiagram {
+	font-size: 30px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=setting], select {
+    width: 50%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 35px;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.rotate {
+  transform:rotate(180deg);
+}
+
+.left{
+	height:50%;
+	width: 100%;
+	border: 1px solid #867979;
+	border-radius: 4px;
+	background-color: #bfbfbf;
+	margin: 4px 0;
+	padding: 15px;
+}
+
+#settings{
+	height: 100%;
+	width: 25%;
+	float: left;
+}
+
+#workspace{
+	height: 100%;
+	width: 75%;
+	float: left;
+}
+
+#node_container{
+	height: 75%;
+}
+
+fieldset 
+{ padding:0; border:0; margin-top:25px; }
+
+#dialog-form-hidden{
+	float: left;
+}
+
+#setting_labels{
+	float: left;
+	width: 50%;
+	padding: 8px 8px;
+}
+
+.setting_dropdown{
+	float: left;
+	width: 50%;
+	padding: 8px 8px;
+}
+
+.label_setting{
+	width: 50%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    height: 35px;
+	float: left;
+}
