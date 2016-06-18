@@ -1,186 +1,208 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-      <title>WSO2 Neural Network Builder</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/jquery-ui.css">
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/neuralNetworkStyles.css">
-  		<script src="js/jquery.js"></script>
- 		  <script src="js/jquery-ui.js"></script>
- 		  <script src="js/bootstrap.js"></script>
- 		  <script src="js/neuralNetworkScript.js"></script> 
-      <script src="js/jsPlumb-2.1.2-min.js"></script>   
-    </head>
-    <body>
-    	<div class="container-fluid">
-    		<div class="row">
-    			<div id="top" class="col-md-1 col-sm-1 col-lg-1" >
-       			<img src="images/WSO2.png" class="img-responsive" alt="WSO2">
-       		</div>
-       		<div id="top" class="col-md-11 col-sm-11 col-lg-11">
-       			<label id="NameDiagram" >Untitled Diagram</label>
-       		</div>	
-    		</div>
-    		<!-- Working area-->
-    		<div class="row">
-    			<!-- Left Area -->
-       			<div id="down" class="col-md-9 col-sm-9 col-lg-9">
-       				<div id="settings">
-       					<div class="left">
-							    <h3><center>Layers</center></h3>
-                  <div id="draggableInput" class="draggable ui-widget-content draggableInput"">
-                    <center class="rotate">Input Layer</center>
-                  </div> 
-                  <div id="draggableHidden" class="ui-widget-content draggableHidden">
-                    <center class="rotate">Hidden Layer</center>
-                  </div> 
-                  <div id="draggableOutput" class="ui-widget-content draggableOutput">
-                    <center class="rotate">Output Layer</center>
-                  </div> 
-						    </div>
-						    <div class="left">
-							    <h3><center>Nodes & Connectors</center></h3>
-                    <div id="nodes" class="draggable ui-widget-content nodes"></div> 
-						    </div>
-       				</div>
-       				<div id="workspace">
-       					<div id="droppable" class="ui-widget-header"></div> 
-                <!-- Dialog box for hidden layers-->
-                <div class="dialog-form-hidden" title="Settings">
-                  <form>
-                   <fieldset>
-                      <label id="setting_labels" for="weightInit">WeightInit</label>
-                      <select class="setting_dropdown" id="weightInit" name="weightInit">
-                        <option value="Distribution">Distribution</option>
-                        <option value="Normalized">Normalized</option>
-                        <option value="Size">Size</option>
-                        <option value="Uniform">Uniform</option>
-                        <option value="Vi">Vi</option>
-                        <option value="Zero">Zero</option>
-                        <option value="Xavier">Xavier</option>
-                        <option value="RELU">RELU</option>
-                        <option value="Xavier">Xavier</option>
+  <!DOCTYPE html>
+  <!--
+  To change this license header, choose License Headers in Project Properties.
+  To change this template file, choose Tools | Templates
+  and open the template in the editor.
+  -->
+  <html>
+      <head>
+        <title>WSO2 Neural Network Builder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/neuralNetworkStyles.css">
+    		<script src="js/jquery.js"></script>
+   		  <script src="js/jquery-ui.js"></script>
+   		  <script src="js/bootstrap.js"></script>
+   		  <script src="js/neuralNetworkScript.js"></script> 
+        <script src="js/jsPlumb-2.1.2-min.js"></script>   
+      </head>
+      <body>
+      	<div class="container-fluid">
+      		<div class="row">
+      			<div id="top" class="col-md-1 col-sm-1 col-lg-1" >
+         			<img src="images/WSO2.png" class="img-responsive" alt="WSO2">
+         		</div>
+         		<div id="top" class="col-md-11 col-sm-11 col-lg-11">
+         			<label id="NameDiagram" >Untitled Diagram</label>
+         		</div>	
+      		</div>
+      		<!-- Working area-->
+      		<div class="row">
+      			<!-- Left Area -->
+         			<div id="down" class="col-md-9 col-sm-9 col-lg-9">
+         				<div id="settings">
+         					<div class="left">
+  							    <h3><center>Layers</center></h3>
+                    <div id="draggableInput" class="draggable ui-widget-content draggableInput"">
+                      <center class="rotate">Input Layer</center>
+                    </div> 
+                    <div id="draggableHidden" class="ui-widget-content draggableHidden">
+                      <center class="rotate">Hidden Layer</center>
+                    </div> 
+                    <div id="draggableOutput" class="ui-widget-content draggableOutput">
+                      <center class="rotate">Output Layer</center>
+                    </div> 
+      						    </div>
+  						    <!-- <div class="left">
+  							    <h3><center>Nodes & Connectors</center></h3>
+                      <div id="nodes" class="draggable ui-widget-content nodes"></div> 
+  						    </div> -->
+         				</div>
+         				<div id="workspace">
+         					<div id="droppable" class="ui-widget-header"></div> 
+                  <!-- Dialog box for input layers-->
+                  <div class="dialog-form-input" title="Settings">
+                    <form>
+                     <fieldset>
+                        <label id="setting_labels">No of Input nodes</label>
+                        <input type="setting" class="form-control" id="inputNodes" >
+                     </fieldset>
+                    </form>
+                  </div>  
+
+                  <!-- Dialog box for hidden layers-->
+                  <div class="dialog-form-hidden" title="Settings">
+                    <form>
+                     <fieldset>
+                        <label id="setting_labels">No of Hidden nodes</label>
+                        <input type="setting" class="form-control" id="hiddenNodes" >
+                        <label id="setting_labels" for="weightInit">WeightInit</label>
+                        <select class="setting_dropdown" id="weightInit" name="weightInit">
+                          <option value="Distribution">Distribution</option>
+                          <option value="Normalized">Normalized</option>
+                          <option value="Size">Size</option>
+                          <option value="Uniform">Uniform</option>
+                          <option value="Vi">Vi</option>
+                          <option value="Zero">Zero</option>
+                          <option value="Xavier">Xavier</option>
+                          <option value="RELU">RELU</option>
+                          <option value="Xavier">Xavier</option>
+                        </select>
+                        <label id="setting_labels" for="activation">Activation</label>
+                        <select class="setting_dropdown" id="activation" name="activation">
+                          <option value="RELU">RELU</option>
+                          <option value="Softmax">Softmax</option>
+                        </select>
+                     </fieldset>
+                    </form>
+                  </div>	
+
+                  <!-- Dialog box for hidden layers-->
+                  <div class="dialog-form-output" title="Settings">
+                    <form>
+                     <fieldset>
+                        <label id="setting_labels">No of Output nodes</label>
+                        <input type="setting" class="form-control" id="hiddenNodes" >
+                        <label id="setting_labels" for="weightInit">WeightInit</label>
+                        <select class="setting_dropdown" id="weightInit" name="weightInit">
+                          <option value="Distribution">Distribution</option>
+                          <option value="Normalized">Normalized</option>
+                          <option value="Size">Size</option>
+                          <option value="Uniform">Uniform</option>
+                          <option value="Vi">Vi</option>
+                          <option value="Zero">Zero</option>
+                          <option value="Xavier">Xavier</option>
+                          <option value="RELU">RELU</option>
+                          <option value="Xavier">Xavier</option>
+                        </select>
+
+                        <label id="setting_labels" for="activation">Activation</label>
+                        <select class="setting_dropdown" id="activation" name="activation">
+                          <option value="RELU">RELU</option>
+                          <option value="Softmax">Softmax</option>
+                        </select>
+
+                        <label id="setting_labels" for="lossFunction">Loss Function</label>
+                        <select class="setting_dropdown" id="lossFunction" name="lossFunction">
+                          <option value="mse">MSE</option>
+                          <option value="expll">EXPLL</option>
+                          <option value="xent">XENT</option>
+                          <option value="mcxent">MCXENT</option>
+                          <option value="rmsexent">RMSE-XENT</option>
+                          <option value="sqauredloss">SQUARED-LOSS</option>
+                          <option value="reconstructioncrossentropy">RECONSTRUCTION-CROSS ENTROPY</option>
+                          <option value="negetiveloglilelihood">NEGTEIVE LOG LIKELIHOOD</option>
+                          <option value="custom">CUSTOM</option>
+                        </select>
+                     </fieldset>
+                    </form>
+                  </div>        			
+         			  </div>     				
+  				    </div>
+         			<!-- Common Neural Network Settings -->
+         	    <div id="down" class="col-md-3 col-sm-3 col-lg-3">
+         	      <div>
+         			    <h4><center>Settings</center></h4>
+         			    <div class="form-horizontal">
+         				    <form class="form-horizontal" >
+                      <label class="label_setting" for="networkType">Neural Network type</label>
+                      <select id="networkType" name="networkType">
+                        <option value="Feed_Forward_NN">Feed Forward NN</option>
+                        <option value="Recurrent_Network">Recurrent Network</option>
+                        <option value="Convolution_Network">Convolution Network</option>
+                        <option value="RBM">Restricted Boltzman Machine</option>
                       </select>
-                      <label id="setting_labels" for="activation">Activation</label>
-                      <select class="setting_dropdown" id="activation" name="activation">
-                        <option value="RELU">RELU</option>
-                        <option value="Softmax">Softmax</option>
-                      </select>
-                   </fieldset>
-                  </form>
-                </div>	
 
-                <!-- Dialog box for hidden layers-->
-                <div class="dialog-form-output" title="Settings">
-                  <form>
-                   <fieldset>
-                      <label id="setting_labels" for="weightInit">WeightInit</label>
-                      <select class="setting_dropdown" id="weightInit" name="weightInit">
-                        <option value="Distribution">Distribution</option>
-                        <option value="Normalized">Normalized</option>
-                        <option value="Size">Size</option>
-                        <option value="Uniform">Uniform</option>
-                        <option value="Vi">Vi</option>
-                        <option value="Zero">Zero</option>
-                        <option value="Xavier">Xavier</option>
-                        <option value="RELU">RELU</option>
-                        <option value="Xavier">Xavier</option>
-                      </select>
+                      <label class="label_setting">Seed</label>
+                      <input type="setting" class="form-control" id="seed" >
 
-                      <label id="setting_labels" for="activation">Activation</label>
-                      <select class="setting_dropdown" id="activation" name="activation">
-                        <option value="RELU">RELU</option>
-                        <option value="Softmax">Softmax</option>
+                      <label class="label_setting">Learning Rate</label>
+                      <input type="setting" class="form-control" id="learningRate" >  
+
+                      <label class="label_setting">Batch Size</label>
+                      <input type="setting" class="form-control" id="batchSize" >
+
+                      <label class="label_setting">nEpoches</label>
+                      <input type="setting" class="form-control" id="nepoches" >
+
+                      <label class="label_setting">Iteration</label>
+                      <input type="setting" class="form-control" id="iteration" >
+
+                      <label class="label_setting" for="optimizationAlgorithms">Optimization Algorithm</label>
+                      <select id="optimizationAlgorithms" name="optimizationAlgorithms">
+                        <option value="Line_Gradient_Descent">Line Gradient Descent</option>
+                        <option value="Conjugate_Gradient">Conjugate Gradient</option>
+                        <option value="Hessian_Free">Hessian Free</option>
+                        <option value="LBFGS">LBFGS</option>
+                        <option value="Stochastic_Gradient_Descent">Stochastic Gradient Descent</option>
                       </select>
 
-                      <label id="setting_labels" for="lossFunction">Loss Function</label>
-                      <select class="setting_dropdown" id="lossFunction" name="lossFunction">
-                        <option value="mse">MSE</option>
-                        <option value="expll">EXPLL</option>
-                        <option value="xent">XENT</option>
-                        <option value="mcxent">MCXENT</option>
-                        <option value="rmsexent">RMSE-XENT</option>
-                        <option value="sqauredloss">SQUARED-LOSS</option>
-                        <option value="reconstructioncrossentropy">RECONSTRUCTION-CROSSENTROPY</option>
-                        <option value="negetiveloglilelihood">NEGTEIVELOGLILELIHOOD</option>
-                        <option value="custom">CUSTOM</option>
+      						    <label class="label_setting" for="updater">Updater</label>
+      							  <select id="updater" name="updater">
+        								<option value="relu">SGD</option>
+  						          <option value="tanh">ADAM</option>
+  						          <option value="sigmoid">ADADELTA</option>
+  						          <option value="linear">NESTEROVS</option>
+                        <option value="linear">ADAGRAD</option>
+                        <option value="linear">RMSPROP</option>
+                        <option value="linear">NONE</option>
+                        <option value="linear">CUSTOM</option>
+      							  </select>
+
+                      <label class="label_setting">Momentum</label>
+                      <input type="setting" class="form-control" id="momentum" >
+                      
+      						    <label class="label_setting" for="pretrain">Pretrain</label>
+      							  <select id="pretrain" name="pretrain">
+        								<option value="true">True</option>
+  						          <option value="false">False</option>
+      							  </select>
+
+                      <label class="label_setting" for="backprop">Back Propagation</label>
+                      <select id="backprop" name="backprop">
+                        <option value="true">True</option>
+                        <option value="false">False</option>
                       </select>
-                   </fieldset>
-                  </form>
-                </div>        			
-       			  </div>     				
-				    </div>
-       			<!-- Common Neural Network Settings -->
-       	    <div id="down" class="col-md-3 col-sm-3 col-lg-3">
-       	      <div>
-       			    <h4><center>Settings</center></h4>
-       			    <div class="form-horizontal">
-       				    <form class="form-horizontal" >
-                    <label class="label_setting">Seed</label>
-                    <input type="setting" class="form-control" id="seed" >
 
-                    <label class="label_setting">Learning Rate</label>
-                    <input type="setting" class="form-control" id="learningRate" >  
+                      <input type="submit" value="Run Neural Network">  
 
-                    <label class="label_setting">Batch Size</label>
-                    <input type="setting" class="form-control" id="batchSize" >
-
-                    <label class="label_setting">nEpoches</label>
-                    <input type="setting" class="form-control" id="nepoches" >
-
-                    <label class="label_setting">Iteration</label>
-                    <input type="setting" class="form-control" id="iteration" >
-
-                    <label class="label_setting" for="optimizationAlgorithms">Optimization Algorithm</label>
-                    <select id="optimizationAlgorithms" name="optimizationAlgorithms">
-                      <option value="Line_Gradient_Descent">Line Gradient Descent</option>
-                      <option value="Conjugate_Gradient">Conjugate Gradient</option>
-                      <option value="Hessian_Free">Hessian Free</option>
-                      <option value="LBFGS">LBFGS</option>
-                      <option value="Stochastic_Gradient_Descent">Stochastic Gradient Descent</option>
-                    </select>
-
-    						    <label class="label_setting" for="updater">Updater</label>
-    							  <select id="updater" name="updater">
-      								<option value="relu">SGD</option>
-						          <option value="tanh">ADAM</option>
-						          <option value="sigmoid">ADADELTA</option>
-						          <option value="linear">NESTEROVS</option>
-                      <option value="linear">ADAGRAD</option>
-                      <option value="linear">RMSPROP</option>
-                      <option value="linear">NONE</option>
-                      <option value="linear">CUSTOM</option>
-    							  </select>
-
-                    <label class="label_setting">Momentum</label>
-                    <input type="setting" class="form-control" id="momentum" >
-                    
-    						    <label class="label_setting" for="pretrain">Pretrain</label>
-    							  <select id="pretrain" name="pretrain">
-      								<option value="true">True</option>
-						          <option value="false">False</option>
-    							  </select>
-
-                    <label class="label_setting" for="backprop">Back Propagation</label>
-                    <select id="backprop" name="backprop">
-                      <option value="true">True</option>
-                      <option value="false">False</option>
-                    </select>
-
-                    <input type="submit" value="Run Neural Network">  
-
-   	    			    </form>	
-       			    </div>
-       		    </div>
-          	</div>
-        </div>	
-    	</div>
-    </body>
-</html>
+     	    			    </form>	
+         			    </div>
+         		    </div>
+            	</div>
+          </div>	
+      	</div>
+      </body>
+  </html>

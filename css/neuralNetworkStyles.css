@@ -1,204 +1,214 @@
-html, body {
-    height: 100%;
-    margin: 1px;
-}
+	html, body {
+	    height: 100%;
+	    margin: 1px;
+	}
+	/* #top-css stylings for the top of the page */
+	#top{
+	    padding: 15px;
+	    border: 1px solid red;
+	    height: 10vh;
+	    background-color: white;
+	    border-radius: 3px;
+	    border: 1px solid #867979;
+	}
 
-#top{
-    padding: 15px;
-    border: 1px solid red;
-    height: 10vh;
-    background-color: white;
-    border-radius: 3px;
-    border: 1px solid #867979;
-}
+	/* #down-css stylings for the workspace and setting parts of the page */
+	#down{
+	    padding: 15px;
+	    height: 90vh;
+	    background-color: #e7e7e4;
+	    border-radius: 10px;
+	    border: 1px solid #867979;
+	}
 
-#down{
-    padding: 15px;
-    height: 90vh;
-    background-color: #e7e7e4;
-    border-radius: 10px;
-    border: 1px solid #867979;
-}
+    /* .draggableInput-css stylings for the Input layers */
+	.draggableInput { 
+		width: 25%; 
+		height: 30vh; 
+		padding: 1em; 
+		float: left; 
+		margin: 10px 10px 10px 0; 
+		background-color: #cc66ff;
+		border-radius: 10px;
+	    border: 1px solid #cc66ff;
+	    writing-mode:tb-rl;
+	}
 
-.draggableInput { 
-	width: 25%; 
-	height: 30vh; 
-	padding: 1em; 
-	float: left; 
-	margin: 10px 10px 10px 0; 
-	background-color: #9933ff;
-	border-radius: 10px;
-    border: 1px solid #9933ff;
-    writing-mode:tb-rl;
-}
+    /* .draggableInputHelper-css stylings for the Input helper(cloned) layers */
+	.draggableInputHelper { 
+		width: 6%; 
+		height: 65vh; 
+		padding: 0.5em; 
+		margin: 10px 10px 10px 0; 
+		background-color: #cc66ff;
+		border-radius: 10px;
+	    border: 1px solid #cc66ff;
+	}
 
-.draggableInputHelper { 
-	width: 6%; 
-	height: 65vh; 
-	padding: 0.5em; 
-	margin: 10px 10px 10px 0; 
-	background-color: #006699;
-	border-radius: 10px;
-    border: 1px solid #006699;
-}
+    /* .draggableHidden-css stylings for the Hidden layers */
+	.draggableHidden { 
+		width: 25%; 
+		height: 30vh; 
+		padding: 0.5em; 
+		float: left; 
+		margin: 10px 10px 10px 0; 
+		background-color: #9900cc;
+		border-radius: 10px;
+	    border: 1px solid #9900cc;
+	    writing-mode:tb-rl;
+	}
 
-.draggableHidden { 
-	width: 25%; 
-	height: 30vh; 
-	padding: 0.5em; 
-	float: left; 
-	margin: 10px 10px 10px 0; 
-	background-color: #9933ff;
-	border-radius: 10px;
-    border: 1px solid #9933ff;
-    writing-mode:tb-rl;
-}
+    /* .draggableHiddenHelper-css stylings for the Hidden helper(cloned) layers */
+	.draggableHiddenHelper{ 
+		width: 6%; 
+		height: 65vh; 
+		padding: 0.5em; 
+		margin: 10px 10px 10px 0; 
+		background-color: #9900cc;
+		border-radius: 10px;
+	    border: 1px solid #9900cc;
+	}
 
-.draggableHiddenHelper{ 
-	width: 6%; 
-	height: 65vh; 
-	padding: 0.5em; 
-	margin: 10px 10px 10px 0; 
-	background-color: #0088cc;
-	border-radius: 10px;
-    border: 1px solid #0088cc;
-}
+    /* .draggableOutput-css stylings for the Outputlayers */
+	.draggableOutput { 
+		width: 25%; 
+		height: 30vh; 
+		padding: 0.5em; 
+		float: left; 
+		margin: 10px 10px 10px 0; 
+		background-color: #0000ff;
+		border-radius: 10px;
+	    border: 1px solid #0000ff;
+	    writing-mode:tb-rl;
+	}
 
-.draggableOutput { 
-	width: 25%; 
-	height: 30vh; 
-	padding: 0.5em; 
-	float: left; 
-	margin: 10px 10px 10px 0; 
-	background-color: #9933ff;
-	border-radius: 10px;
-    border: 1px solid #9933ff;
-    writing-mode:tb-rl;
-}
+    /* .draggableOutputHelper-css stylings for the Output helper(cloned) layers */
+   	.draggableOutputHelper { 
+		width: 6%; 
+		height: 65vh;
+		padding: 0.5em; 
+		margin: 10px 10px 10px 0; 
+		background-color: #0000ff;
+		border-radius: 10px;
+	    border: 1px solid #0000ff;
+	}
 
-.draggableOutputHelper { 
-	width: 6%; 
-	height: 65vh;
-	padding: 0.5em; 
-	margin: 10px 10px 10px 0; 
-	background-color: #00aaff;
-	border-radius: 10px;
-    border: 1px solid #00aaff;
-}
+    /* #droppable -css stylings for the droppable container */
+	#droppable { 
+		width: 100%; 
+		height: 100%; 
+		padding: 0.5em;  
+		margin: 10px; 
+		float: left;
+		border: 1px solid #867979;
+		border-radius: 4px;
+		background-color: white;
+	}
 
-#droppable { 
-	width: 100%; 
-	height: 100%; 
-	padding: 0.5em;  
-	margin: 10px; 
-	float: left;
-	border: 1px solid #867979;
-	border-radius: 4px;
-	background-color: white;
-}
+    /* #NameDiagram -css stylings for the text styles */
+	#NameDiagram {
+		font-size: 30px;
+	}
 
-.nodes{
-	width:40px;
-	height:40px;
-	background-color: black;
-	border: 1px solid #867979;
-	border-radius: 4px;
-}
+    /* css stylings for the input */
+	input[type=text], select {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    height: 30px;
+	}
+	
+    /* css stylings for the submit buttons */
+	input[type=submit] {
+	    width: 100%;
+	    background-color: #4CAF50;
+	    color: white;
+	    padding: 10px 20px;
+	    margin: 4px 0;
+	    border: none;
+	    border-radius: 4px;
+	    cursor: pointer;
+	}
 
-#NameDiagram {
-	font-size: 30px;
-}
+	input[type=setting], select {
+	    width: 50%;
+	    padding: 8px 8px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    height: 35px;
+	    float: right;
+	}
 
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 30px;
-}
+	input[type=submit]:hover {
+	    background-color: #45a049;
+	}
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 4px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+	/* css stylings for rotating texts */
+	.rotate {
+	  transform:rotate(180deg);
+	}
 
-input[type=setting], select {
-    width: 50%;
-    padding: 8px 8px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 35px;
-    float: right;
-}
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+	.left{
+		height:50%;
+		width: 100%;
+		border: 1px solid #867979;
+		border-radius: 4px;
+		background-color: #bfbfbf;
+		margin: 4px 0;
+		padding: 15px;
+	}
 
-.rotate {
-  transform:rotate(180deg);
-}
+	/* css stylings for setting element */	
+	#settings{
+		height: 100%;
+		width: 25%;
+		float: left;
+	}
+		/* css stylings for workspace */	
+	#workspace{
+		height: 100%;
+		width: 75%;
+		float: left;
+	}
 
-.left{
-	height:50%;
-	width: 100%;
-	border: 1px solid #867979;
-	border-radius: 4px;
-	background-color: #bfbfbf;
-	margin: 4px 0;
-	padding: 15px;
-}
+	#node_container{
+		height: 75%;
+	}
 
-#settings{
-	height: 100%;
-	width: 25%;
-	float: left;
-}
+	fieldset 
+	{ padding:0; border:0; margin-top:25px; }
 
-#workspace{
-	height: 100%;
-	width: 75%;
-	float: left;
-}
+	#dialog-form-hidden{
+		float: left;
+	}
 
-#node_container{
-	height: 75%;
-}
+	#dialog-form-input{
+		float: left;
+	}
 
-fieldset 
-{ padding:0; border:0; margin-top:25px; }
+	#setting_labels{
+		float: left;
+		width: 50%;
+		padding: 8px 8px;
+	}
 
-#dialog-form-hidden{
-	float: left;
-}
+	.setting_dropdown{
+		float: left;
+		width: 50%;
+		padding: 8px 8px;
+	}
 
-#setting_labels{
-	float: left;
-	width: 50%;
-	padding: 8px 8px;
-}
-
-.setting_dropdown{
-	float: left;
-	width: 50%;
-	padding: 8px 8px;
-}
-
-.label_setting{
-	width: 50%;
-    padding: 8px 8px;
-    margin: 8px 0;
-    display: inline-block;
-    height: 35px;
-	float: left;
-}
+	.label_setting{
+		width: 50%;
+	    padding: 8px 8px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    height: 35px;
+		float: left;
+	}
